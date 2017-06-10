@@ -1,6 +1,6 @@
 spring:
   application:
-    name: admin
+    name: @project.artifactId@
   profiles:
     active: dev
   cloud:

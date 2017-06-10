@@ -14,7 +14,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Dalston.SR1</spring-cloud.version>
-        <spring.boot.admin.version>1.5.0</spring.boot.admin.version>
+        <spring-boot-admin.version>1.5.0</spring-boot-admin.version>
+        <jolokia.version>1.3.6</jolokia.version>
+        <plugin.maven-resources-plugin.version>2.6</plugin.maven-resources-plugin.version>
     </properties>
 
     <dependencies>
@@ -30,22 +32,22 @@
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-server</artifactId>
-            <version>${spring.boot.admin.version}</version>
+            <version>${spring-boot-admin.version}</version>
         </dependency>
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-server-ui</artifactId>
-            <version>${spring.boot.admin.version}</version>
+            <version>${spring-boot-admin.version}</version>
         </dependency>
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-server-ui-hystrix</artifactId>
-            <version>${spring.boot.admin.version}</version>
+            <version>${spring-boot-admin.version}</version>
         </dependency>
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
-            <version>${spring.boot.admin.version}</version>
+            <version>${spring-boot-admin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jolokia</groupId>
@@ -67,12 +69,29 @@
     </dependencyManagement>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <finalName>${project.artifactId}</finalName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${plugin.maven-resources-plugin.version}</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
                 </configuration>
             </plugin>
         </plugins>

@@ -21,6 +21,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Dalston.SR1</spring-cloud.version>
+        <plugin.maven-resources-plugin.version>2.6</plugin.maven-resources-plugin.version>
     </properties>
 
     <dependencies>
@@ -53,12 +54,29 @@
     </dependencyManagement>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <finalName>${project.artifactId}</finalName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${plugin.maven-resources-plugin.version}</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
                 </configuration>
             </plugin>
         </plugins>

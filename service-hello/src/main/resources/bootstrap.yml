@@ -1,6 +1,6 @@
 spring:
   application:
-    name: hello-service
+    name: @project.artifactId@
   profiles:
     active: dev
   cloud:
