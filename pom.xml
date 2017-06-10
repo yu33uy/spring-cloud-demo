@@ -9,5 +9,6 @@
 
 	<modules>
 		<module>config</module>
+		<module>registry</module>
 	</modules>
 </project>
