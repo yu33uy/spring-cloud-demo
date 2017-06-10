@@ -11,6 +11,7 @@
 		<module>config</module>
 		<module>registry</module>
 		<module>gateway</module>
+		<module>admin</module>
 		<module>service-hello</module>
 	</modules>
 </project>
