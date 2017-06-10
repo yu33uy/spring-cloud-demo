@@ -10,5 +10,6 @@
 	<modules>
 		<module>config</module>
 		<module>registry</module>
+		<module>service-hello</module>
 	</modules>
 </project>
