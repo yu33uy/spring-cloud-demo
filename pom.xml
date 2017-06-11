@@ -12,6 +12,7 @@
 		<module>registry</module>
 		<module>gateway</module>
 		<module>admin</module>
+		<module>service-auth</module>
 		<module>service-hello</module>
 	</modules>
 </project>
