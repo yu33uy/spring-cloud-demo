@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -28,6 +29,7 @@ import spring.cloud.auth.service.security.MySQLUserDetailsService;
 @SpringBootApplication
 @EnableResourceServer
 @EnableDiscoveryClient
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AuthApplication {
 
     public static void main(String[] args) {
@@ -68,7 +70,7 @@ public class AuthApplication {
 
     @Configuration
     @EnableAuthorizationServer
-    protected static class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
+    protected static class oAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 
         private TokenStore tokenStore = new InMemoryTokenStore();
 

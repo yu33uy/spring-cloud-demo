@@ -14,3 +14,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+
+security:
+  oauth2:
+    client:
+      client-id: spring-cloud-demo-auth-client_id
+      client-secret : spring-cloud-demo-auth-secret
+    authorization:
+      checkTokenAccess : isAuthenticated()
