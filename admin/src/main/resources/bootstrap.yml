@@ -9,3 +9,7 @@ spring:
       fail-fast: true
       password: config-password
       username: config-user
+
+management:
+  security:
+    enabled: false
