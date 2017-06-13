@@ -9,3 +9,13 @@ spring:
       fail-fast: true
       password: config-password
       username: config-user
+
+security:
+  oauth2:
+    clientId: spring-cloud-demo-auth-client_id
+    secret: spring-cloud-demo-auth-secret
+
+
+logging:
+  level:
+    root: DEBUG
