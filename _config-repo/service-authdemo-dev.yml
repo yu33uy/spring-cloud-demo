@@ -1,0 +1,6 @@
+server:
+  context-path: /authdemo
+  port: 8000
+management:
+  security:
+    enabled: false

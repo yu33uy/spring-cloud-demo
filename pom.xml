@@ -14,5 +14,6 @@
 		<module>admin</module>
 		<module>service-auth</module>
 		<module>service-hello</module>
+		<module>service-authdemo</module>
 	</modules>
 </project>
