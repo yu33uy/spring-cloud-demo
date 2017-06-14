@@ -18,6 +18,7 @@ spring:
 management:
   security:
     enabled: false
+  address: 127.0.0.1
 
 security:
   oauth2:
