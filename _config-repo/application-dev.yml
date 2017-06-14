@@ -17,8 +17,7 @@ eureka:
     healthCheckUrlPath: ${server.context-path}${management.context-path}/health
     metadata-map:
       management.context-path: ${server.context-path}${management.context-path}
-      name: ${security.user.name}
-      password: ${security.user.password}
+
   client:
     serviceUrl:
       defaultZone: http://registry:8761/eureka/
