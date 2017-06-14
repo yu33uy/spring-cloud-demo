@@ -7,3 +7,7 @@ spring.boot.admin:
   turbine:
     clusters: default
     location: turbine
+
+management:
+  security:
+    enabled: false
