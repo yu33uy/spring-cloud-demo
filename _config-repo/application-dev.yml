@@ -17,6 +17,8 @@ eureka:
     healthCheckUrlPath: ${server.context-path}${management.context-path}/health
     metadata-map:
       management.context-path: ${server.context-path}${management.context-path}
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
 
   client:
     serviceUrl:
