@@ -9,3 +9,6 @@ spring:
       fail-fast: true
       password: config-password
       username: config-user
+
+security.user.name: admin
+security.user.password: secret

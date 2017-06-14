@@ -9,3 +9,7 @@ spring:
       fail-fast: true
       password: config-password
       username: config-user
+
+## 这个配置是设置 Actuator 安全访问的，通过基本授权（basic authentication）方式访问
+security.user.name: admin
+security.user.password: secret
