@@ -1,3 +1,0 @@
-server:
-  context-path: /authdemo
-  port: 8000

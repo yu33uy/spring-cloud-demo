@@ -112,6 +112,13 @@ public class AuthApplication {
                     .secret(secret)
                     .authorizedGrantTypes("refresh_token", "password")
                     .scopes("openid")
+
+                    .and()
+
+                    .withClient("service-authdemo")
+                    .secret("26253c50741faa9c2e2b836773c69fe")
+                    .authorizedGrantTypes("client_credentials", "refresh_token")
+                    .scopes("server")
             ;
             // @formatter:on
         }
