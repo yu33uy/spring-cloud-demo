@@ -1,21 +1,14 @@
 package spring.cloud.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -26,7 +19,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
-import spring.cloud.auth.service.security.MySQLUserDetailsService;
 
 /**
  * Created by Frank on 2017/6/11.
@@ -90,9 +82,9 @@ public class AuthApplication {
             return new BCryptPasswordEncoder();
         }
 
-        @Value("${security.oauth2.clientId}")
+        @Value("${security.user.name}")
         private String clientId;
-        @Value("${security.oauth2.secret}")
+        @Value("${security.user.password}")
         private String secret;
 
         @Autowired
@@ -111,6 +103,7 @@ public class AuthApplication {
                     .withClient(clientId)
                     .secret(secret)
                     .authorizedGrantTypes("refresh_token", "password")
+                    .authorities("ACTUATOR")
                     .scopes("openid")
 
                     .and()
@@ -149,8 +142,8 @@ public class AuthApplication {
             http
                     .authorizeRequests()
                     .anyRequest().authenticated()
-                    //.and()
-                    //.csrf().disable()
+            //.and()
+            //.csrf().disable()
             ;
             // @formatter:on
         }

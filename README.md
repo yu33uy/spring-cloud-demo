@@ -20,4 +20,4 @@
 
 地址：http://auth-service:5000
 
-授权信息：Basic Y2xpZW50aWQ6c2VjcmV0
+授权信息：Basic YWRtaW46c2VjcmV0

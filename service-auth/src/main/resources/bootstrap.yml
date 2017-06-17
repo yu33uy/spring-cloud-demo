@@ -12,3 +12,4 @@ spring:
 
 security.user.name: admin
 security.user.password: secret
+
