@@ -8,3 +8,8 @@ spring.boot.admin:
   turbine:
     clusters: default
     location: turbine
+
+security:
+  user:
+    name: admin
+    password: secret

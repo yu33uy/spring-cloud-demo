@@ -1,3 +1,8 @@
 server:
   context-path: /hello
   port: 7000
+
+security:
+  user:
+    name: admin
+    password: secret
