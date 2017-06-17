@@ -21,7 +21,6 @@ public class MySQLUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
         User user = userRepository.findUserByUsername(s);
-        user.translate();
 
         if (user == null) {
             throw new UsernameNotFoundException(s);
