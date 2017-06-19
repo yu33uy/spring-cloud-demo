@@ -1,23 +1,20 @@
 package spring.cloud.auth.domain;
 
 import lombok.Data;
+import spring.cloud.commons.BaseEntity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
- * Created by Frank on 2017/6/16.
+ * Created by Frank on 2017/6/17.
  */
-@Data
 @Entity
-@Table(name="role")
-public class Role {
+@Table(name = "role")
+@Data
+public class Role extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Integer id;
-    @Column(name="user_id")
-    private Integer userId;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 }

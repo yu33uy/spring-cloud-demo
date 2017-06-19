@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import spring.cloud.commons.BaseEntity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,14 +17,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "`user`")
-public class User implements UserDetails {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    @Getter
-    @Setter
-    private Integer id;
+public class User extends BaseEntity implements UserDetails {
 
     @Column(name = "username")
     @Setter
@@ -36,14 +30,14 @@ public class User implements UserDetails {
     @Getter
     @Setter
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Role> roles;
+    private List<UserRole> userRoles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         List<GrantedAuthority> auths = new ArrayList<>();
-        for (Role role : this.roles) {
-            auths.add(new SimpleGrantedAuthority(role.getName()));
+        for (UserRole userRole : this.userRoles) {
+            auths.add(new SimpleGrantedAuthority(userRole.getRole().getName()));
         }
         return auths;
     }
