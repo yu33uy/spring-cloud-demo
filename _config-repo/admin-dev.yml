@@ -1,4 +1,5 @@
 server:
+  context-path: /admin
   port: 5555
 
 spring.boot.admin:
@@ -7,3 +8,8 @@ spring.boot.admin:
   turbine:
     clusters: default
     location: turbine
+
+security:
+  user:
+    name: admin
+    password: secret

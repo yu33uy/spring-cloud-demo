@@ -14,4 +14,14 @@ public class HelloController {
         return "Hello World !";
     }
 
+    @RequestMapping(value="/auth")
+    String helloAuth(){
+        return "Hello Auth !";
+    }
+
+    @RequestMapping(value="/noauth")
+    String helloNoAuth(){
+        return "Hello No Auth !";
+    }
+
 }

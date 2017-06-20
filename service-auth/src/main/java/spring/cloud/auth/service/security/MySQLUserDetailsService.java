@@ -23,7 +23,7 @@ public class MySQLUserDetailsService implements UserDetailsService {
         User user = userRepository.findUserByUsername(s);
 
         if (user == null) {
-            throw  new UsernameNotFoundException(s);
+            throw new UsernameNotFoundException(s);
         }
 
         return user;
